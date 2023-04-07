@@ -1,20 +1,7 @@
 import React, { useState } from 'react'
 import './Styles/HeaderNav.css'
 import { NavLink } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Transition } from 'react-transition-group'
-import {
-  faBars,
-  faTimes, faUserCircle,
-  faAngleDown,
-  faAngleUp,
-  faHammer,
-  faHeartbeat,
-  faSkull,
-  faGraduationCap,
-  faSearch,
-  faBell,
-} from '@fortawesome/free-solid-svg-icons'
 
 function HeaderNav() {
   const [nav, setNav] = useState(true)
@@ -25,17 +12,17 @@ function HeaderNav() {
       isOpen: false,
       options: [
         {
-          iconRep: faHammer,
+          iconRep: "ri-hammer-line",
           movieType: 'Action Movies',
           movieLink: '/hollywood/action-movies'
         },
         {
-          iconRep: faHeartbeat,
+          iconRep: "ri-heart-pulse-line",
           movieType: 'Romatic Movies',
           movieLink: '/hollywood/romantic-movies'
         },
         {
-          iconRep: faSkull,
+          iconRep: "ri-skull-2-line",
           movieType: 'Horror Movies',
           movieLink: '/hollywood/horro-movies'
         },
@@ -47,12 +34,12 @@ function HeaderNav() {
       isOpen: false,
       options: [
         {
-          iconRep: faHammer,
+          iconRep: "ri-hammer-line",
           movieType: 'Action Movies',
           movieLink: '/hallyuwood/action-movies'
         },
         {
-          iconRep: faHeartbeat,
+          iconRep: "ri-heart-pulse-line",
           movieType: 'Romantic Movies',
           movieLink: '/hallyuwood/romantic-movies'
         },
@@ -65,17 +52,17 @@ function HeaderNav() {
       isOpen: false,
       options: [
         {
-          iconRep: faHammer,
+          iconRep: "ri-hammer-line",
           movieType: 'Action Movies',
           movieLink: '/nollywood/action-movies'
         },
         {
-          iconRep: faHeartbeat,
+          iconRep: "ri-heart-pulse-line",
           movieType: 'Romantic Movies',
           movieLink: '/nollywood/romantic-movies'
         },
         {
-          iconRep: faGraduationCap,
+          iconRep: "ri-book-line",
           movieType: 'Education Movies',
           movieLink: '/nollywood/edu-movies'
         },
@@ -87,12 +74,12 @@ function HeaderNav() {
       isOpen: false,
       options: [
         {
-          iconRep: faHammer,
+          iconRep: "ri-hammer-line",
           movieType: 'Action Movies',
           movieLink: '/bollywood/action-movies'
         },
         {
-          iconRep: faHeartbeat,
+          iconRep: "ri-heart-pulse-line",
           movieType: 'Romantic Movies',
           movieLink: '/bollywood/romatic-movies'
         }
@@ -120,10 +107,10 @@ function HeaderNav() {
       <div className="bg-[#070101] py-2 h-[50px] xl:hidden">
         <div className='flex justify-between items-center text-slate-100 max-w-[100%] mx-5'>
           <span onClick={handleNav} className=" w-7 px-2 text-[20px]">
-            {nav ? <FontAwesomeIcon icon={faBars} /> : <FontAwesomeIcon icon={faTimes} />}
+            {nav ? <i className="ri-menu-line"></i> : < i className="ri-close-line"></i>}
           </span>
           <div className='text-[#dc2626] font-bold text-2xl'>CLOUDFLIX</div>
-          <FontAwesomeIcon icon={faUserCircle} />
+          <i className="ri-user-3-line"></i>
         </div>
         <div className={!nav ? 'navStyle' : 'transition-all duration-700 fixed left-[-100%] h-screen ease-in-out'}>
           <label>Explore</label>
@@ -131,7 +118,7 @@ function HeaderNav() {
             <React.Fragment key={index}>
               <span className="movie-title" onClick={() => handleToggle(index)}>
                 <NavLink to={!menu.isOpen ? menu.url : ''}>
-                  {menu.title} {menu.isOpen ? <FontAwesomeIcon icon={faAngleUp} /> : <FontAwesomeIcon icon={faAngleDown} />}
+                  {menu.title} {menu.isOpen ? <i className="ri-arrow-up-s-line"></i> : <i className="ri-arrow-down-s-line"></i>}
                 </NavLink>
               </span>
               <Transition in={menu.isOpen} timeout={500}>
@@ -144,10 +131,10 @@ function HeaderNav() {
                       <NavLink 
                         to={option.movieLink}
                         key={option}
-                        className="flex flex-row items-center px-4 py-2 cursor-pointer w-[200px] text-[12px]"
+                        className="side-bar-parent flex flex-row items-center px-4 py-2 cursor-pointer w-[200px] text-[12px]"
                         onClick={() => handleOptionClick(option)}
                       >
-                        { <FontAwesomeIcon icon={option.iconRep} className="mx-2"/>} {option.movieType }
+                        {<i className={option.iconRep} ></i>} {option.movieType }
                       </NavLink>
                     ))}
                   </ul>

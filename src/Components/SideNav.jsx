@@ -1,22 +1,7 @@
 import React, { useState } from 'react'
 import './Styles/SideNav.css'
 import { NavLink } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Transition } from 'react-transition-group'
-import {
-  faAngleDown,
-  faAngleUp,
-  faHammer,
-  faHeartbeat,
-  faSkull,
-  faGraduationCap,
-  faHome,
-  faDownload,
-  faCog,
-  faFlag,
-  faCommentAlt
-} from '@fortawesome/free-solid-svg-icons'
-import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
 
 function SideNav() {
     const [countryMovieMenu, setCountryMovieMenu] = useState([
@@ -26,17 +11,17 @@ function SideNav() {
       isOpen: false,
       options: [
         {
-          iconRep: faHammer,
+          iconRep: "ri-hammer-line",
           movieType: 'Action Movies',
           movieLink: '/hollywood/action-movies'
         },
         {
-          iconRep: faHeartbeat,
+          iconRep: "ri-heart-pulse-line",
           movieType: 'Romatic Movies',
           movieLink: '/hollywood/romantic-movies'
         },
         {
-          iconRep: faSkull,
+          iconRep: "ri-skull-2-line",
           movieType: 'Horror Movies',
           movieLink: '/hollywood/horro-movies'
         },
@@ -48,12 +33,12 @@ function SideNav() {
       isOpen: false,
       options: [
         {
-          iconRep: faHammer,
+          iconRep: "ri-hammer-line",
           movieType: 'Action Movies',
           movieLink: '/hallyuwood/action-movies'
         },
         {
-          iconRep: faHeartbeat,
+          iconRep: "ri-heart-pulse-line",
           movieType: 'Romantic Movies',
           movieLink: '/hallyuwood/romantic-movies'
         },
@@ -66,17 +51,17 @@ function SideNav() {
       isOpen: false,
       options: [
         {
-          iconRep: faHammer,
+          iconRep: "ri-hammer-line",
           movieType: 'Action Movies',
           movieLink: '/nollywood/action-movies'
         },
         {
-          iconRep: faHeartbeat,
+          iconRep: "ri-heart-pulse-line",
           movieType: 'Romantic Movies',
           movieLink: '/nollywood/romantic-movies'
         },
         {
-          iconRep: faGraduationCap,
+          iconRep: "ri-book-line",
           movieType: 'Education Movies',
           movieLink: '/nollywood/edu-movies'
         },
@@ -88,18 +73,18 @@ function SideNav() {
       isOpen: false,
       options: [
         {
-          iconRep: faHammer,
+          iconRep: "ri-hammer-line",
           movieType: 'Action Movies',
           movieLink: '/bollywood/action-movies'
         },
         {
-          iconRep: faHeartbeat,
+          iconRep: "ri-heart-pulse-line",
           movieType: 'Romantic Movies',
           movieLink: '/bollywood/romatic-movies'
         }
       ]
     }
-    ])
+  ])
     
     const handleToggle = (index) => {
         const updateCountryMovieMenu = [...countryMovieMenu]
@@ -121,16 +106,16 @@ function SideNav() {
                   <div className=''>
                       <label htmlFor="">Feeds</label>
                       <ul className='feeds text-slate-100 flex flex-col text-[12px]'>
-                          <NavLink to={''}><FontAwesomeIcon icon={faHome} /> Home</NavLink>
-                          <NavLink to={'downloads'}><FontAwesomeIcon icon={faDownload} /> Downloads</NavLink>
+                          <NavLink className="side-bar-menus side-bar-parent" to={''}><i className="ri-home-2-line"></i> Home</NavLink>
+                          <NavLink className="side-bar-menus side-bar-parent" to={'downloads'}><i className="ri-download-cloud-2-line"></i> Downloads</NavLink>
                       </ul>
                   </div>
                   <label htmlFor="">Explore</label>
                   {countryMovieMenu.map((menu, index) => (
                         <React.Fragment key={index}>
                         <span className="movie-title" onClick={() => handleToggle(index)}>
-                            <NavLink to={!menu.isOpen ? menu.url : ''}>
-                            {menu.title} {menu.isOpen ? <FontAwesomeIcon icon={faAngleUp} /> : <FontAwesomeIcon icon={faAngleDown} />}
+                            <NavLink className="side-bar-menus" to={!menu.isOpen ? menu.url : ''}>
+                            {menu.title} {menu.isOpen ?<i className="ri-arrow-up-s-line"></i> : <i className="ri-arrow-down-s-line"></i>}
                             </NavLink>
                         </span>
                         <Transition in={menu.isOpen} timeout={500}>
@@ -140,13 +125,13 @@ function SideNav() {
                                 style={{ maxHeight: state === 'entered' ? '200px' : '0' }}
                             >
                                 {menu.options.map(option => (
-                                <NavLink 
+                                <NavLink
                                     to={option.movieLink}
                                     key={option}
-                                    className="flex flex-row items-center px-4 text-slate-100 py-2 cursor-pointer w-[200px] text-[12px]"
+                                    className="side-bar-parent flex flex-row items-center px-4 text-slate-100 py-2 cursor-pointer w-[200px] text-[12px]"
                                     onClick={() => handleOptionClick(option)}
                                 >
-                                    { <FontAwesomeIcon icon={option.iconRep} className="mx-2"/>} {option.movieType }
+                                    {<i className={option.iconRep }>  </i>} {option.movieType }
                                 </NavLink>
                                 ))}
                             </ul>
@@ -157,10 +142,10 @@ function SideNav() {
                   <div>
                       <label htmlFor="">Options</label>
                       <ul className='options text-slate-100 flex flex-col text-[12px]'>
-                          <NavLink to={'settings'}><FontAwesomeIcon icon={faCog} /> Settings</NavLink>
-                          <NavLink to={'report-history'}><FontAwesomeIcon icon={faFlag} /> Report history</NavLink>
-                          <NavLink to={'help'}><FontAwesomeIcon icon={faQuestionCircle} /> Help</NavLink>
-                          <NavLink to={'feedback'}><FontAwesomeIcon icon={faCommentAlt} /> Send feedback</NavLink>
+                          <NavLink className="side-bar-menus side-bar-parent" to={'settings'}><i className="ri-settings-3-line"></i> Settings</NavLink>
+                          <NavLink className="side-bar-menus side-bar-parent" to={'report-history'}><i className="ri-flag-line"></i> Report history</NavLink>
+                          <NavLink className="side-bar-menus side-bar-parent" to={'help'}><i className="ri-question-line"></i> Help</NavLink>
+                          <NavLink className="side-bar-menus side-bar-parent" to={'feedback'}><i className="ri-feedback-line"></i> Send feedback</NavLink>
                       </ul>
                     </div>
               </div>

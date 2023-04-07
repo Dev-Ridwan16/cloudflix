@@ -17,3 +17,9 @@
 .feeds a, .options a {
     @apply my-2 mx-5
 }
+.side-bar-menus {
+    @apply flex flex-row  items-center
+}
+.side-bar-parent i {
+    @apply pr-5 text-base
+}
