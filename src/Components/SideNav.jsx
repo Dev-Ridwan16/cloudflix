@@ -8,7 +8,7 @@ function SideNav() {
 
   return (
     <React.Fragment>
-      <div className='hidden sidebar xl:block sticky overflow-scroll top-0 border-r-2 border-r-slate-900 h-screen p-5'>
+      <div className='hidden sidebar md:block sticky overflow-scroll top-0 border-r-2 border-r-slate-900 h-screen p-5'>
         <div className='sticky top-0 text-left bg-[#070101]'>
           <span className='brand-name'>CLOUDFLIX</span>
         </div>

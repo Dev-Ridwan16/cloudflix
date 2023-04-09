@@ -105,7 +105,7 @@ function HeaderNav() {
 
   return (
     <React.Fragment>
-      <div className="bg-[#070101] py-2 h-[50px] xl:hidden sticky top-0">
+      <div className="bg-[#070101] py-2 h-[50px] md:hidden sticky top-0">
         <div className='flex justify-between items-center text-slate-100 max-w-[100%] mx-5'>
           <span onClick={handleNav} className=" w-7 px-2 text-[20px]">
             {nav ? <i className="ri-menu-line"></i> : < i className="ri-close-line"></i>}
