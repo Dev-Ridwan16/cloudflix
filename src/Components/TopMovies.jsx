@@ -29,7 +29,7 @@ function TopMovies() {
 
   const slides = [
     {
-      image: '/src/assets/images/movie_image1.jpg',
+      image: 'https://i.pinimg.com/236x/11/a7/9e/11a79e76ff1dea32519ba70286bbf06b.jpg',
       title: 'Spider-Man Home coming',
       info: {
         types: {
@@ -40,8 +40,8 @@ function TopMovies() {
       }
     },
     {
-      image: '/src/assets/images/movie_image2.jpg',
-      title: 'Love is Blind',
+      image: 'https://i.pinimg.com/564x/df/7b/0a/df7b0afd8ee709a7ddfd64b507a93859.jpg',
+      title: 'After Ever Happy',
       info: {
         types: {
           type1: "Romatic",
@@ -51,8 +51,8 @@ function TopMovies() {
       }
     },
     {
-      image: '/src/assets/images/movie_image3.jpg',
-      title: 'Captain America: The winter soldier',
+      image: 'https://i.pinimg.com/236x/43/af/5c/43af5ce8879fb4eb8c35656c936419e8.jpg',
+      title: 'Down of the Dead',
       info: {
         types: {
           type1: "Action",
