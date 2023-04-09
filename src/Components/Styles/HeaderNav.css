@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300&family=Poppins:wght@300;400;500;700&family=Quicksand:wght@500&display=swap');
+.brand-name {
+    font-family: 'Bebas Neue', cursive;
+}
 .navStyle::-webkit-scrollbar {
     @apply w-1 -scroll-ml-10 cursor-pointer
 }
+
 .navStyle::-webkit-scrollbar-track {
     @apply bg-none py-10
 }
+
 .navStyle::-webkit-scrollbar-thumb {
     @apply bg-[#dc2626] rounded-xl z-20
 }
 
 .navStyle {
-    @apply bg-[#070101] overflow-y-scroll z-10 text-slate-100 flex flex-col w-[800px] h-screen transition-all duration-700 ease-in-out fixed left-0 top-16 px-5
+    @apply bg-[#070101] overflow-scroll z-10 text-slate-100 flex flex-col w-[800px] h-screen transition-all duration-700 ease-in-out fixed left-0 top-16 px-5
 }
 label {
     @apply text-gray-600 text-[16px]
@@ -18,8 +24,12 @@ ul a.active {
     @apply text-[#dc2626]
 }
 .movie-title {
-    @apply py-2 px-5 cursor-pointer text-slate-500 text-[14px] w-[240px] hover:border border-slate-500 rounded-xl
+    @apply h-[38px] px-5 cursor-pointer text-gray-200 text-[14px] w-[240px] hover:bg-[#170606] 
+    rounded font-light opacity-70
+}
+.side-bar-menus {
+    @apply flex items-center justify-between h-full w-full;
 }
 .side-bar-parent i {
-    @apply pr-5 text-base
+    @apply pr-5 text-base transition-all
 }

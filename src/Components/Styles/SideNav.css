@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300&family=Poppins:wght@300;400;500;700&family=Quicksand:wght@500&display=swap');
+
 .sidebar::-webkit-scrollbar {
     @apply w-1 -scroll-ml-10 cursor-pointer
 }
@@ -10,16 +11,29 @@
 .sidebar::-webkit-scrollbar-thumb {
     @apply bg-[#dc2626] rounded-xl z-20
 }
+
 .brand-name {
     font-family: 'Bebas Neue', cursive;
     @apply text-[#dc2626] text-3xl text-center
 }
-.feeds a, .options a {
-    @apply my-2 mx-5
+
+.feeds a,
+.options a {
+    @apply my-2;
 }
+
 .side-bar-menus {
-    @apply flex flex-row  items-center
+    @apply flex flex-row justify-between items-center
 }
+
+.side-bar-menus i {
+    @apply transition-all;
+}
+
 .side-bar-parent i {
     @apply pr-5 text-base
 }
+
+/* .sidenav-dropdown {
+    @apply overflow-hidden
+} */

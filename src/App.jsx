@@ -5,17 +5,16 @@ import HeaderNav from './Components/HeaderNav'
 import BottomNav from './Components/BottomNav'
 import SideNav from './Components/SideNav'
 import DesktopHeaderNav from './Components/DesktopHeaderNav'
+import Recent from './Components/Recent'
 
 function App() {
 
   return (
     <div className="App">
-      <div className='flex flex-row justify-between'>
-        <SideNav />
-        <DesktopHeaderNav />
-      </div>
+      <DesktopHeaderNav />
       <HeaderNav />
-      <BottomNav/>
+      <BottomNav />
+      {/* <Recent /> */}
     </div>
   )
 }

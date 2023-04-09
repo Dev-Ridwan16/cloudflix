@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Styles/HeaderNav.css'
 import { NavLink } from 'react-router-dom'
 import { Transition } from 'react-transition-group'
+import TopMovies from './TopMovies'
 
 function HeaderNav() {
   const [nav, setNav] = useState(true)
@@ -43,7 +44,7 @@ function HeaderNav() {
           movieType: 'Romantic Movies',
           movieLink: '/hallyuwood/romantic-movies'
         },
-        
+
       ]
     },
     {
@@ -86,7 +87,7 @@ function HeaderNav() {
       ]
     }
   ])
-  
+
   const handleToggle = (index) => {
     const updateCountryMovieMenu = [...countryMovieMenu]
     updateCountryMovieMenu[index].isOpen = !updateCountryMovieMenu[index].isOpen
@@ -104,12 +105,12 @@ function HeaderNav() {
 
   return (
     <React.Fragment>
-      <div className="bg-[#070101] py-2 h-[50px] xl:hidden">
+      <div className="bg-[#070101] py-2 h-[50px] xl:hidden sticky top-0">
         <div className='flex justify-between items-center text-slate-100 max-w-[100%] mx-5'>
           <span onClick={handleNav} className=" w-7 px-2 text-[20px]">
             {nav ? <i className="ri-menu-line"></i> : < i className="ri-close-line"></i>}
           </span>
-          <div className='text-[#dc2626] font-bold text-2xl'>CLOUDFLIX</div>
+          <div className='brand-name text-[#dc2626] font-bold text-2xl'>CLOUDFLIX</div>
           <i className="ri-user-3-line"></i>
         </div>
         <div className={!nav ? 'navStyle' : 'transition-all duration-700 fixed left-[-100%] h-screen ease-in-out'}>
@@ -127,14 +128,14 @@ function HeaderNav() {
                     className={`dropdown-menu px-5 left-0 rounded-md overflow-hidden transition-max-height duration-1000 ease-out ${state}`}
                     style={{ maxHeight: state === 'entered' ? '200px' : '0' }}
                   >
-                    {menu.options.map(option => (
-                      <NavLink 
+                    {menu.options.map((option, i) => (
+                      <NavLink
                         to={option.movieLink}
-                        key={option}
+                        key={i}
                         className="side-bar-parent flex flex-row items-center px-4 py-2 cursor-pointer w-[200px] text-[12px]"
                         onClick={() => handleOptionClick(option)}
                       >
-                        {<i className={option.iconRep} ></i>} {option.movieType }
+                        {<i className={option.iconRep} ></i>} {option.movieType}
                       </NavLink>
                     ))}
                   </ul>
@@ -143,6 +144,7 @@ function HeaderNav() {
             </React.Fragment>
           ))}
         </div>
+        <TopMovies />
       </div>
     </React.Fragment>
   )

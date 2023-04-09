@@ -1,0 +1,17 @@
+.keen-slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.movie-info {
+    @apply text-gray-400 text-[10px] my-5 italic
+}
+
+.movie-info span {
+    @apply mx-2 border px-2 py-1 rounded-xl
+}
+
+.keen-slider__slide {
+    /* position: relative; */
+    /* flex: 1; */
+}
