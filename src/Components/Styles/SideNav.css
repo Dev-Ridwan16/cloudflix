@@ -1,39 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300&family=Poppins:wght@300;400;500;700&family=Quicksand:wght@500&display=swap');
-
-.sidebar::-webkit-scrollbar {
-    @apply w-1 -scroll-ml-10 cursor-pointer
+.logo {
+    @apply flex flex-row w-[150px] mt-3 ml-5
 }
 
-.sidebar::-webkit-scrollbar-track {
-    @apply bg-none py-10
+.logo img:nth-child(1){
+    @apply w-[50px] h-[30px]
 }
-
-.sidebar::-webkit-scrollbar-thumb {
-    @apply bg-[#dc2626] rounded-xl z-20
+.logo img:nth-child(2){
+    @apply h-[30px] w-[100px]
 }
-
-.brand-name {
-    font-family: 'Bebas Neue', cursive;
-    @apply text-[#dc2626] text-3xl text-center
-}
-
-.feeds a,
-.options a {
-    @apply my-2;
-}
-
-.side-bar-menus {
-    @apply flex flex-row justify-between items-center
-}
-
-.side-bar-menus i {
-    @apply transition-all;
-}
-
-.side-bar-parent i {
-    @apply pr-5 text-base
-}
-
-/* .sidenav-dropdown {
-    @apply overflow-hidden
-} */

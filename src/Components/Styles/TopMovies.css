@@ -1,17 +1,32 @@
-.keen-slider {
-    display: flex;
-    overflow: hidden;
+.carousel__slides {
+    @apply relative w-[350px] md:w-[800px] lg:w-[1000px]
 }
 
-.movie-info {
-    @apply text-gray-400 text-[10px] my-5 italic
+.carousel__slide {
+    @apply absolute top-0 left-0 w-full h-full shadow-2xl opacity-0 transition-opacity duration-[2s] ease-in-out
 }
 
-.movie-info span {
-    @apply mx-2 border px-2 py-1 rounded-xl
+.slide__images {
+    @apply w-[350px] md:w-[800px] lg:w-[1000px] h-[200px] md:h-[300px] lg:h-[350px] object-cover rounded-xl border border-gray-600
 }
 
-.keen-slider__slide {
-    /* position: relative; */
-    /* flex: 1; */
+.carousel__slide.active {
+    opacity: 1;
+}
+
+.carousel__indicators {
+    @apply flex items-center justify-center top-[200px] my-5 lg:float-right lg:top-[275px] relative
+}
+
+.carousel__indicator {
+    @apply w-2 h-2 bg-[#ffffff] lg:w-[80px] lg:h-[40px] rounded shadow-2xl border border-slate-800 mx-3 cursor-pointer transition-all duration-[1s] ease-in-out;
+
+}
+
+.carousel__indicator.active {
+    @apply border-[2px] border-dashed border-red-600
+}
+
+.carousel__caption {
+    @apply text-slate-100 absolute top-[30px] bottom-0 left-0 w-[50%] px-5
 }

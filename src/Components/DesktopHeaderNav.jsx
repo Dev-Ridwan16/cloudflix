@@ -1,31 +1,39 @@
-import React from 'react'
-import SideNav from './SideNav'
-import TopMovies from './TopMovies'
+import React from 'react';
+import { useToggleTheme } from './HandleTheme';
 
 function DesktopHeaderNav() {
+  const [handleTheme, changeTheme] = useToggleTheme();
+
   return (
     <React.Fragment>
-      <div className="flex flex-row gap-20">
-        <SideNav />
-        <div className='hidden md:flex flex-col md:w-[full]'>
-          <div className='hidden md:block sticky z-10 bg-[#070101] top-0 py-5'>
-            <nav className='flex flex-row justify-between items-center py-2 px-3 w-[1024px] mx-auto'>
-              <div className='flex flex-row items-center'>
-                <input type="search" name="" id="" placeholder='Search with title' className=' bg-[#070101] border border-zinc-800 rounded-2xl w-[250px] px-3 py-2 text-slate-400 text-[12px]' />
-                <i className="ri-search-line z-10 -ml-6 bg-[#070101] text-slate-400 text-[12px]"></i>
+      <div className="flex flex-row sticky top-0 z-40">
+        <div className="hidden md:hidden lg:flex flex-col lg:w-[full]">
+          <div className="hidden lg:block sticky z-10 top-0">
+            <nav className={`${handleTheme ? 'bg-[#070101] transition-all duration-1000 ease-in-out' : 'bg-[#ffffff]'} flex flex-row justify-between items-center px-2 py-1 w-[1000px] mx-auto`}>
+              <div className="flex flex-row items-center gap-5">
+                <i
+                  className={`${handleTheme ? 'fa fa-sun' : 'fa fa-moon'} cursor-pointer`}
+                  onClick={changeTheme}
+                ></i>
+                <div>
+                  <input
+                    type="search"
+                    placeholder="Search with title"
+                    className="border border-[#070101] rounded-2xl w-[250px] px-3 py-1 text-slate-400 text-[12px]"
+                  />
+                  <i className="ri-search-line z-10 -ml-6 text-slate-400 text-[12px]"></i>
+                </div>
               </div>
-              <div>
-                <i className='ri-notification-2-line px-5 text-slate-100'></i>
-                <i className="ri-user-3-line text-slate-100"></i>
-
+              <div className="flex gap-5">
+                <i className="ri-notification-2-line"></i>
+                <i className="ri-user-3-line"></i>
               </div>
             </nav>
           </div>
-          <TopMovies />
         </div>
       </div>
     </React.Fragment>
-  )
+  );
 }
 
-export default DesktopHeaderNav
+export default DesktopHeaderNav;

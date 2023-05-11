@@ -1,97 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import { useKeenSlider } from 'keen-slider/react';
-import 'keen-slider/keen-slider.min.css';
-import './Styles/TopMovies.css';
-import Recent from './Recent';
+import { useState, useEffect } from 'react';
+import { slides } from '../data/slides.js'
+import DesktopHeaderNav from './DesktopHeaderNav.jsx';
+import HeaderNav from './HeaderNav.jsx';
+import Recent from './Recent.jsx';
+import SideNav from './SideNav.jsx';
+import './Styles/TopMovies.css'
 
 function TopMovies() {
-  const [sliderRef, slider] = useKeenSlider({
-    initial: 0,
-    loop: true,
-    duration: 1000,
-    dragStart: () => setIsPaused(true),
-    dragEnd: () => setIsPaused(false),
-  });
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 10000);
+    return () => clearInterval(intervalId);
+  }, [slides.length]);
 
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1
-    setCurrentIndex(newIndex)
-  }
-  const nextSlide = (i) => {
-    const isLastSlide = currentIndex === slides.length - 1
-    const newIndex = isLastSlide ? 0 : currentIndex + 1
-    // wrapper.style.marginLeft = `${-100 * currentIndex}%`
-    setCurrentIndex(newIndex)
-  }
-
-  const slides = [
-    {
-      image: 'https://i.pinimg.com/236x/11/a7/9e/11a79e76ff1dea32519ba70286bbf06b.jpg',
-      title: 'Spider-Man Home coming',
-      info: {
-        types: {
-          type1: "Action",
-          type2: 'Advengers',
-          type3: 'Fantancy'
-        }
-      }
-    },
-    {
-      image: 'https://i.pinimg.com/564x/df/7b/0a/df7b0afd8ee709a7ddfd64b507a93859.jpg',
-      title: 'After Ever Happy',
-      info: {
-        types: {
-          type1: "Romatic",
-          type2: 'Love',
-          type3: '18+'
-        }
-      }
-    },
-    {
-      image: 'https://i.pinimg.com/236x/43/af/5c/43af5ce8879fb4eb8c35656c936419e8.jpg',
-      title: 'Down of the Dead',
-      info: {
-        types: {
-          type1: "Action",
-          type2: 'Advengers',
-          type3: 'Fantancy'
-        }
-
-      }
-    },
-  ];
-
+  const handleIndicatorClick = (index) => {
+    setActiveIndex(index);
+  };
   return (
-    <React.Fragment>
-      <div className="w-[450px] mx-auto my-5 md:md:w-[1024px] ">
-        <h1 className='text-slate-100 text-xl font-bold mb-5'>Trending movies</h1>
-        <div className="w-full">
-          <div ref={sliderRef} className="keen-slider rounded-xl">
-            {slides.map((slide, index) => (
-              <div key={index} className="keen-slider__slide relative bg-gradient-to-tl from-black to-black">
-                <img src={slide.image} alt="Your Image" className="w-full h-[300px] object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent mix-blend-ovelay"></div>
-                <div className="absolute inset-0 flex flex-col py-5 px-4">
-                  <h1 className="text-xl text-slate-300 font-bold w-[200px]">{slide.title}</h1>
-                  <div className='movie-info'>
-                    <span>{slide['info'].types.type1}</span>
-                    <span>{slide['info'].types.type2}</span>
-                    <span>{slide['info'].types.type3}</span>
+    <div className="flex">
+      <SideNav />
+      <div className='w-[750px] mx-auto flex flex-col gap-5'>
+        <DesktopHeaderNav />
+        <HeaderNav />
+        <div className='flex flex-col'>
+          <div className="carousel max-[350px] md:max-w-[800px] lg:max-w-[1000px] mx-auto">
+            <div className="carousel__slides">
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`carousel__slide ${
+                    index === activeIndex ? 'active' : ''
+                  }`}
+                >
+                  <img src={slide.imageURL} alt={slide.info.title} className="slide__images" />
+                  <div className="carousel__caption">
+                    <h1 className='text-lg md:text-2xl lg:text-3xl font-semibold lg:font-bold'>{slide.info.title}</h1>
+                    <div className='other__informations'>
+                      <h3 className='text-sm font-medium md:text-base md:font-bold py-3'>{slide.info.mainActor}</h3>
+                      <div className="flex flex-row justify-between w-auto">
+                        <div className="hidden md:flex flex-row">
+                          {slide.info.movie_type.map((type, index) => (
+                            <span key={index} className="text-xs italic">
+                              {Object.values(type).join(' | ')}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex flex-row">
+                          {
+                            slide.info.location.map((locate, index) => (
+                              <span key={index} className='text-[10px] md:text-xs'>
+                                {Object.values(locate).join(" ")}
+                              </span>
+                            ))
+                          }
+                        </div>
+                      </div>
+                    </div>
+                    <button className='hidden md:block bg-[#dc2626] text-slate-100 relative top-36 py-2 px-3 shadow rounded-lg'>Play video <i className='fa fa-play-circle'></i></button>
                   </div>
-
-                  <button className='bg-[#dc2626] w-[100px] p-2 mt-20 text-slate-100 text-sm rounded-xl'>Play now</button>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="carousel__indicators">
+              {slides.map((slide, index) => (
+                <img 
+                  src={slide.imageURL}
+                  key={index}
+                  className={`carousel__indicator ${
+                    index === activeIndex ? 'active' : ''
+                  } hidden lg:block`}
+                  onClick={() => handleIndicatorClick(index)}
+                />
+              ))}
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`carousel__indicator ${
+                    index === activeIndex ? 'active' : ''
+                  } md:hidden`}
+                  onClick={() => handleIndicatorClick(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
+          <Recent />
       </div>
-      <Recent />
-    </React.Fragment>
-  );
+    </div>
+  )
 }
 
-export default TopMovies;
+export default TopMovies

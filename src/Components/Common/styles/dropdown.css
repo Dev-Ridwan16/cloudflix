@@ -1,7 +1,0 @@
-.dropdown-item {
-    @apply text-slate-100 flex flex-col
-}
-
-.dropdown-item-sublist {
-    @apply overflow-hidden
-}

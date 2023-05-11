@@ -81,13 +81,19 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-  @apply bg-[#070101]
+  @apply bg-[#070101] text-slate-100 transition-all duration-[1.5s] ease-in-out 
+
 }
+body.dark {
+  /* @apply bg-slate-100 text-[#070101] */
+}
+
 nav a.active {
-  @apply border-2 border-t-0 border-b-0 border-r-0 border-[#dc2626] text-slate-100 font-semibold w-full
+  @apply border-2 border-t-0 border-b-0 border-r-0 border-[#dc2626] text-[#dc2626] font-semibold w-full 
 }
+
 nav a.active i {
-  @apply text-[#dc2626]
+  /* @apply text-[#dc2626] */
 }
 
 @tailwind base;
