@@ -24,7 +24,7 @@ function HeaderNav() {
           <i className="ri-user-3-line"></i>
         </div>
         <div>
-          <nav className={`transition-all duration-500 ease-in-out ${nav ? 'opacity-0 w-0' : 'opacity-100 w-full'} w-auto opacity-100 flex flex-col h-screen fixed ${handleTheme ? 'bg-[#070101] transition-all duration-1000 ease-in-out' : 'bg-[#ffffff]'}`}>
+          <nav className={`transition-all duration-500 ease-in-out ${nav ? 'opacity-0 w-0' : 'opacity-100 w-full'} opacity-100 flex flex-col h-screen fixed ${handleTheme ? 'bg-[#070101] transition-all duration-1000 ease-in-out' : 'bg-[#ffffff]'}`}>
 
                 {mobileNavLinks.map((mobileNavLink, index) => {
                 return (
