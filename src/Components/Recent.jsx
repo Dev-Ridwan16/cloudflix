@@ -34,7 +34,7 @@ export default () => {
                         <div ref={isMobile ? mobileSliderRef : sliderRef} className="keen-slider">
                             {
                                 contexts.slides.map((context) => (
-                                    <div key={index} className={`keen-slider__slide number-slide${index + 1} md:block rounded-lg`}>
+                                    <div key={index} className={`keen-slider__slide number-slide${index + 1} md:block rounded`}>
                                         <div className="bg-none" key={context.id} >
                                             <div className={`${isMobile ? 'w-[150px]' : 'w-[200px]'} relative `}>
                                                 <div className="">
