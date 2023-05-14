@@ -59,7 +59,7 @@ function TopMovies() {
                         </div>
                       </div>
                     </div>
-                    <button className='hidden md:block bg-[#dc2626] text-slate-100 relative top-36 py-2 px-3 shadow rounded-lg'>Play video <i className='fa fa-play-circle'></i></button>
+                    <button className='hidden md:block bg-[#dc2626] text-slate-100 relative lg:top-36 py-2 px-3 shadow rounded-lg'>Play video <i className='fa fa-play-circle'></i></button>
                   </div>
                 </div>
               ))}

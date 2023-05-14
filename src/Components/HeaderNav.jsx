@@ -15,7 +15,7 @@ function HeaderNav() {
 
   return (
     <React.Fragment>
-      <div className= {`${handleTheme ? 'bg-[#070101] transition-all duration-1000 ease-in-out' : 'bg-[#ffffff] text-[#070101]'} z-30 py-2 h-[50px] md:hidden sticky top-0`}>
+      <div className= {`${handleTheme ? 'bg-[#070101] transition-all duration-1000 ease-in-out' : 'bg-[#ffffff] text-[#070101]'} z-30 py-2 h-[50px] md:w-screen lg:hidden sticky top-0`}>
         <div className='flex justify-between items-center  max-w-[100%] mx-5'>
           <span onClick={handleNav} className=" w-7 px-2 text-[20px]">
             {nav ? <i className="ri-menu-line"></i> : < i className="ri-close-line"></i>}
@@ -28,7 +28,7 @@ function HeaderNav() {
 
                 {mobileNavLinks.map((mobileNavLink, index) => {
                 return (
-                  <div key={index} className="flex flex-col">
+                  <div key={index} className="flex flex-col"> 
                     <div className="changeTheme flex justify-between m-5">
                       <label>Change theme <i className='fa fa-arrow-right'></i></label>
                       <i
