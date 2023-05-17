@@ -92,6 +92,31 @@ export const sideNavLinks = [
     ],
   },
   {
+    label: "Explore",
+    links: [
+      {
+        icon: "fa-solid fa-music",
+        title: "Music Vidoes",
+        to: "/music-vidoes",
+      },
+      {
+        icon: "fa-solid fa-futbol",
+        title: "Sports Videos",
+        to: "/sport-vidoes",
+      },
+      {
+        icon: "fa-solid fa-laugh",
+        title: "Skit Videos",
+        to: "/skit-vidoes",
+      },
+      {
+        icon: "fa-solid fa-film",
+        title: "Short Reels",
+        to: "/reels",
+      },
+    ],
+  },
+  {
     label: "Options",
     links: [
       {

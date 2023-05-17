@@ -1,0 +1,3 @@
+.bt-nav {
+    @apply flex flex-col items-center gap-y-2
+}

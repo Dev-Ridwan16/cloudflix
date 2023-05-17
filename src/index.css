@@ -68,15 +68,15 @@ button:focus-visible {
   }
 } */
 
-html::-webkit-scrollbar {
-  @apply w-1 -scroll-ml-10 cursor-pointer
+html::-webkit-scrollbar, .sideNav::-webkit-scrollbar {
+  @apply w-1 -scroll-m-10 cursor-pointer
 }
 
-html::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track, .sideNav::-webkit-scrollbar-track {
   @apply bg-none py-10
 }
 
-html::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb, .sideNav::-webkit-scrollbar-thumb{
   @apply bg-[#dc2626] rounded-xl z-20
 }
 

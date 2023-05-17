@@ -24,6 +24,7 @@ function DesktopHeaderNav() {
                   <i className="ri-search-line z-10 -ml-6 text-slate-400 text-[12px]"></i>
                 </div>
               </div>
+                <button className='text-[#dc2626] font-bold border border-[#dc2626] rounded my-2 px-2'>Watch Live</button>
               <div className="flex gap-5">
                 <i className="ri-notification-2-line"></i>
                 <i className="ri-user-3-line"></i>

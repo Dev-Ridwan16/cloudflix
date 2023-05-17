@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 function SideNav() {
   return (
     <div className="hidden xl:flex flex-row fixed top-0 bottom-0">
-        <div className="border-r-2 border-slate-700 h-screen w-[250px]">
+        <div className="sideNav border-r-2 border-slate-700 h-screen w-[260px] overflow-y-scroll">
             <div className="logo">
                 <img src={Icon} alt="" />
                 <img src={Name} alt="" />
@@ -18,7 +18,7 @@ function SideNav() {
                 return (
                     <div key={index} className="flex flex-col">
                     <label className='text-slate-400 text-xs my-3 ml-5'>{sideNavLink.label}</label>
-                    {
+                    { 
                         sideNavLink.links.map((link, i) => {
                             return (                                    
                                 <NavLink
