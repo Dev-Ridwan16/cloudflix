@@ -3,10 +3,17 @@ import { NavLink } from 'react-router-dom';
 import { mobileNavLinks } from '../data/slides';
 import { sideNavLinks } from '../data/slides';
 import { useToggleTheme } from './HandleTheme';
+import Profile from './Profile';
+
 
 function HeaderNav() {
   const [nav, setNav] = useState(true);
   const [handleTheme, changeTheme] = useToggleTheme();
+  const [showProfile, setShowProfile] = useState(false);
+
+  const toggleProfile = () => {
+    setShowProfile((prevState) => !prevState);
+  };
   const handleNav = () => {
     setNav(!nav);
   };
@@ -26,14 +33,16 @@ function HeaderNav() {
           <span onClick={handleNav} className="w-7 px-2 text-[20px]">
             {nav ? <i className="ri-menu-line"></i> : <i className="ri-close-line"></i>}
           </span>
+          
           <div className="brand-name text-[#dc2626] font-bold text-2xl">CLOUDFLIX</div>
-          <i className="ri-user-3-line"></i>
+          <i className={!showProfile ? "fa fa-user-circle" : "fa fa-times"} onClick={toggleProfile}></i>
         </div>
+        
         <div>
           <nav
             className={`${
               nav ? 'opacity-0 w-0' : 'opacity-100 w-screen'
-            } transition-all duration-500 ease-in-out flex flex-col h-screen fixed ${
+            } transition-all duration-500 ease-in-out flex flex-col h-screen fixed z-50 ${
               handleTheme ? 'bg-[#070101] transition-all duration-1000 ease-in-out' : 'bg-[#ffffff]'
             }`}
           >
@@ -66,6 +75,7 @@ function HeaderNav() {
               ))}
             </div>
           </nav>
+          {showProfile && <Profile />}
         </div>
       </div>
     </React.Fragment>

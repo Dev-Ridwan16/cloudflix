@@ -1,0 +1,23 @@
+/* th {
+    @apply 
+} */
+table th {
+    @apply border-r text-[12px] p-2 border-[#616161]
+}
+table tr {
+    @apply border text-[10px] border-[#616161]
+}
+table tr td {
+    @apply px-2
+}
+section > td:nth-child(1) {
+    @apply border-r-[1px] border-r-[#070101] 
+}
+
+.progress__bar::-webkit-progress-bar {
+    @apply bg-slate-100
+}
+
+.progress__bar::-webkit-progress-value {
+    @apply bg-[#dc2626]
+}

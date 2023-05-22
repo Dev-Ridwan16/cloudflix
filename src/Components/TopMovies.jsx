@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { slides } from '../data/slides.js'
+import BottomNav from './BottomNav.jsx';
 import DesktopHeaderNav from './DesktopHeaderNav.jsx';
 import HeaderNav from './HeaderNav.jsx';
 import Recent from './Recent.jsx';
@@ -71,7 +72,7 @@ function TopMovies() {
                   key={index}
                   className={`carousel__indicator ${
                     index === activeIndex ? 'active' : ''
-                  } hidden lg:block`}
+                  } hidden md:block`}
                   onClick={() => handleIndicatorClick(index)}
                 />
               ))}
@@ -88,6 +89,7 @@ function TopMovies() {
           </div>
         </div>
           <Recent />
+          <BottomNav />
       </div>
     </div>
   )

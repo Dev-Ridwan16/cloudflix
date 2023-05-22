@@ -1,3 +1,7 @@
 .bt-nav {
     @apply flex flex-col items-center gap-y-2
 }
+
+.bt-nav i {
+    @apply text-[14px]
+}

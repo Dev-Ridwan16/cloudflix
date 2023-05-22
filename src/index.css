@@ -81,7 +81,7 @@ html::-webkit-scrollbar-thumb, .sideNav::-webkit-scrollbar-thumb{
 }
 
 body {
-  @apply bg-[#070101] text-slate-100 transition-all duration-[1.5s] ease-in-out 
+  @apply  text-slate-100 transition-all duration-[1.5s] ease-in-out 
 
 }
 body.dark {

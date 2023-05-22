@@ -15,16 +15,16 @@
 }
 
 .carousel__indicators {
-    @apply flex items-center justify-center top-[200px] my-5 lg:float-right lg:top-[275px] relative
+    @apply flex items-center justify-center top-[200px] my-5 md:float-right lg:top-[260px]  relative
 }
 
 .carousel__indicator {
-    @apply w-2 h-2 bg-[#ffffff] lg:w-[80px] lg:h-[40px] rounded shadow-2xl border border-slate-800 mx-3 cursor-pointer transition-all duration-[1s] ease-in-out;
+    @apply w-3 h-3 bg-[#ffffff] md:w-[35px] md:h-[35px] lg:w-[40px] lg:h-[40px] rounded shadow-2xl border border-slate-800 mx-3 cursor-pointer transition-all duration-[1s] ease-in-out;
 
 }
 
 .carousel__indicator.active {
-    @apply border-[2px] border-dashed border-red-600
+    @apply border-[2px] border-dashed border-red-600 bg-[#dc2626] w-10 md:w-[70px] lg:w-[100px]
 }
 
 .carousel__caption {

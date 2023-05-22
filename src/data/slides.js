@@ -165,3 +165,42 @@ export const mobileNavLinks = [
     ],
   },
 ]
+
+export const profile = [
+  {
+    wallpaper:
+      "https://i.pinimg.com/564x/5e/27/b0/5e27b0ba42ca13ce1bb8a5ce2d4e84ad.jpg",
+    icons: {
+      closeIcon: "fa fa-times",
+      userIcon: "fa fa-user-circle",
+      phoneIcon: "fa fa-phone",
+      emailIcon: "fa fa-envelope",
+      editIcon: "fa fa-pencil",
+      saveIcon: "fa fa-save",
+      logoutIcon: "fa fa-sign-out",
+    },
+    logOut: {
+      text: "Log out",
+    },
+    editProfile: {
+      text: "Edit Profile",
+    },
+    name: "Adewole Ridwanullahi A.",
+    otherInfo: {
+      Email: {
+        title: "Email",
+        email: "devridwan1@gmail.com",
+      },
+      Number: {
+        title: "Phone No.",
+        countryCode: "+234",
+        phoneNumber: "704 7344 365",
+      },
+    },
+    storage_info: {
+      total__storage: "5GB (5000mb)",
+      storage__used__percent: 40,
+      storage__used: "1.3GB (1300mb)",
+    },
+  },
+]

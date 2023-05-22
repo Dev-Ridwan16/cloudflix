@@ -5,7 +5,7 @@ function BottomNav() {
   
   return (
     <React.Fragment>
-      <div className="fixed bottom-0 flex flex-row justify-evenly py-12 bg-[#000000] h-[15px] text-slate-100  w-full lg:hidden">
+      <div className="fixed bottom-0 flex flex-row justify-between px-3 py-2 h-14 bg-[#070101] border-t rounded text-slate-100 w-screen z-50 lg:hidden">
         <div className='bt-nav'>
           <i className="fa fa-home"></i>
           <span>Home</span>
